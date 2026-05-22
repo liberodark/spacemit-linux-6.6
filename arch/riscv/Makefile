@@ -176,7 +176,9 @@ BOOT_TARGETS := Image Image.gz loader loader.bin xipImage vmlinuz.efi
 #
 # extra files
 #
+ifeq ($(KBUILD_EXTMOD),)
 include $(srctree)/arch/riscv/generic/Platform
+endif
 bootvars-y	= ITS_INPUTS="$(its-y)"
 
 all:	$(notdir $(KBUILD_IMAGE)) Image.itb Image.gz.itb
